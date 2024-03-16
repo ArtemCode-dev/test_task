@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Review } from "../../types/users";
+import { Review } from "../../types/reviews";
 // interface Review {
 //     date: string;
 //     name: string;

@@ -3,7 +3,7 @@ import ReviewCard from '../UI/ReviewCard/ReviewCard';
 import s from './Main.module.scss'
 import { connect } from 'react-redux';
 import { IMainState, setReviews } from '../../store/slices/main-slice';
-import { Review } from '../../types/users';
+import { Review } from '../../types/reviews';
 
 type reviewItem = {
     date: string;
@@ -60,10 +60,10 @@ export class Main extends Component<Props, State> {
             {this.props.reviews[0] && currentItems.map((item:reviewItem) => (
                 <ReviewCard date = {item.date} name = {item.name} review = {item.review}/>
             ))}
-            <div>
+            <div className={s.main__buttons}>
                 {pageNumbers.map(number => (
                     // извиняюсь за inline styles
-                    <button key={number} style={{backgroundColor: number == this.state.currentPage ? 'green' : 'white'}} onClick={() => this.setState({ currentPage: number })}>
+                    <button key={number} style={number == this.state.currentPage ? {backgroundColor: 'green', color: 'white'} : {backgroundColor: 'white'}} onClick={() => this.setState({ currentPage: number })}>
                         {number}
                     </button>
                 ))}
